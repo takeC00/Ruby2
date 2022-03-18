@@ -63,7 +63,7 @@ next_game = true
 while next_game do 
   next_game = zyanken
 end
-puts settle
+puts settle #
 
 def attimuitehoi
   puts "あっち向いて〜〜ほいっ"
@@ -91,17 +91,22 @@ def attimuitehoi
   elsif put_pc_dir == 3
     pc_dir = "左"
   end
-  
-  #ここでzyankenメソッド内の変数put_result使いたい
-  if put_result == "WIN"
-    puts "自分は#{my_dir}を指した"
-    puts "相手は#{pc_dir}を向いた"
-  elsif　put_result == "LOSE"
-    puts "相手は#{pc_dir}を指した"
-    puts "自分は#{my_dir}を向いた"
-  end
 
   
-    
+  #ここでzyankenメソッド内の変数put_resultを代入したsettle使いたい
+  def attimuite_hoi_junction(settle)
+    if settle == "WIN"
+      puts "自分は#{my_dir}を指した"
+      puts "相手は#{pc_dir}を向いた"
+      
+    elsif　settle == "LOSE"
+      puts "相手は#{pc_dir}を指した"
+      puts "自分は#{my_dir}を向いた"
+    else 
+      zyanken
+    end
+  end
 end
+
 attimuitehoi
+attimuite_hoi_junction
