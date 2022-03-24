@@ -1,7 +1,9 @@
 def zyanken
+  next_zyanken = [""]
   puts "じゃんけんぽい"
   puts "自分の手を選んでください"
   puts "グー[0]チョキ[1]パー[2]"
+  puts "----------------------"
   my_hand = gets.chomp.to_i
   pc_hand = rand(1)
   puts "----------------------"
@@ -32,7 +34,6 @@ def zyanken
     puts "じゃんけんの結果　[#{zyanken_result}]"
     puts "----------------------"
     puts "アイコで"
-    zyanken
   elsif (my_hand == 0 && pc_hand == 1 || my_hand == 1 && pc_hand == 2 || my_hand == 2 && pc_hand == 0 )
     zyanken_result = "WIN"
     puts "じゃんけんの結果　[YOU #{zyanken_result}]"
@@ -49,10 +50,13 @@ end
 
 def attimuitehoi(z_result)
   puts "あっち向いて〜〜ほいっ"
+  puts "----------------------"
   puts "自分の向きを選択"
   puts "上↑[0]　右→[1]　下↓[2] 左←[3]"
+  puts "----------------------"
   put_my_dir = gets.chomp.to_i
   put_pc_dir = rand(1)
+  puts "----------------------"
 
   if put_my_dir == 0
     my_dir = "上"
@@ -88,20 +92,28 @@ def attimuitehoi(z_result)
     puts "あっち向いてホイの結果"
     puts "あなたの勝ち"
     puts "----------------------"
+    return "END"
   elsif (z_result == "LOSE" && my_dir == pc_dir)
     puts "あっち向いてホイの結果"
     puts "あなたの負け"
+    puts "----------------------"
+    return "END"
   elsif (z_result == "WIN" && my_dir != pc_dir || z_result == "LOSE" && my_dir != pc_dir )
-    z_result = zyanken
-    attimuitehoi(z_result)
+    puts "まだまだ〜〜〜"
+    puts "もう一回じゃんけんからだっ"
+    puts "----------------------"
   end
 end
 
 
-
-
-
-
-z_result = zyanken #変数（z_result）にジャンケンメソッドの結果（戻り値）を入れる
-attimuitehoi(z_result)#上記の変数を引数としてあっち向いてホイメソッドに渡して結果を表示する
-
+while 
+  z_result = zyanken
+  if 
+    z_result == "DRAW"
+    next
+  end
+  if 
+    attimuitehoi(z_result) == "END"
+    break
+  end
+end
