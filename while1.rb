@@ -44,7 +44,7 @@ def zyanken
     puts "----------------------"
     false
   end
-  #return zyanken_result
+  return zyanken_result
 end
 
 
