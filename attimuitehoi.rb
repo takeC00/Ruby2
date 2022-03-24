@@ -5,7 +5,7 @@ def zyanken
   puts "グー[0]チョキ[1]パー[2]"
   puts "----------------------"
   my_hand = gets.chomp.to_i
-  pc_hand = rand(1)
+  pc_hand = rand(3)
   puts "----------------------"
   
   put_my_hand = [""]
@@ -55,7 +55,7 @@ def attimuitehoi(z_result)
   puts "上↑[0]　右→[1]　下↓[2] 左←[3]"
   puts "----------------------"
   put_my_dir = gets.chomp.to_i
-  put_pc_dir = rand(1)
+  put_pc_dir = rand(4)
   puts "----------------------"
 
   if put_my_dir == 0
