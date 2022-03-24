@@ -32,15 +32,20 @@ def zyanken
     puts "じゃんけんの結果　[#{zyanken_result}]"
     puts "----------------------"
     puts "アイコで"
-    zyanken
+    #true
+    next_zyanken = true
   elsif (my_hand == 0 && pc_hand == 1 || my_hand == 1 && pc_hand == 2 || my_hand == 2 && pc_hand == 0 )
     zyanken_result = "WIN"
     puts "じゃんけんの結果　[YOU #{zyanken_result}]"
     puts "----------------------"
+    #false
+    next_zyanken = false
   else
     zyanken_result = "LOSE"
     puts "じゃんけんの結果　[YOU #{zyanken_result}]"
     puts "----------------------"
+    #false
+    next_zyanken = false
   end
   return zyanken_result
 end
@@ -97,11 +102,17 @@ def attimuitehoi(z_result)
   end
 end
 
+next_zyanken = true
+while next_zyanken
+  puts next_zyanken
+  z_result = zyanken
+  puts z_result#確認用
+end
+
+# next_attimuitehoi = true
+# while next_attimuitehoi
+#   next_attimuitehoi = attimuitehoi(z_result)
+# end
 
 
-
-
-
-z_result = zyanken #変数（z_result）にジャンケンメソッドの結果（戻り値）を入れる
-attimuitehoi(z_result)#上記の変数を引数としてあっち向いてホイメソッドに渡して結果を表示する
-
+#じゃんけん結果を持ってこれるが、じゃんけんの処理が終わらない
